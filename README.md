@@ -1,25 +1,47 @@
 # Kaden Jenson's personal portfolio
 
 ## Local Dev Environment
-
 - Docker Desktop
-- Ubuntu (Windows)
+- Ubuntu (via Windows Terminal)
 - PHP Storm
 
 ## Production Environment
-
 - T.B.A.
 
 ## Tech Stack
-
 - PHP 8.0
+- Composer
 - Laravel Framework
 - Laravel Sail
-- JavaScript (ESNext)
-- React, Svelte, or InertiaJS (still deciding) to build the interface
-- Tailwind CSS to style it.
-- Redis for caching
+- React JS scaffolding via Inertia.js
+- Tailwind CSS
+- Redis
 - MySQL DB
+
+## Initial Setup
+- Open Ubuntu and run `explorer.exe .`, find your '.bashrc' file and paste this at the bottom: `alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'`
+- run `exit` to stop your terminal session and then open it again to load your BASH profile settings
+- run `sudo apt-get composer`
+- navigate to your projects directory and run `curl -s https://laravel.build/portfolio | bash`
+- run `cd portfolio`
+- start Docker Desktop
+- run `sail up -d` to start the container in detached mode
+- run `sail artisan migrate`
+- run `sail composer require laravel/breeze --dev`
+- run `sail artisan breeze:install react`
+- run `sail npm install`
+- run `sail npm run dev`
+- run `sail artisan migrate`
+- open your browser to [register](http://localhost/register) your admin account
+- run `sail stop` to shut down your container
+
+## Development
+- open Ubuntu via Windows Terminal
+- start Docker Desktop
+- navigate to the project's directory
+- run `sail up -d` to start the container
+- run `sail npm watch` to compile client side assets on the fly
+- run `sail stop` when you're done
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
